@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "friends-1c624": {
+      "hosting": {
+        "friends": [
+          "friends-1c624"
+        ]
+      }
+    }
+  }
+}

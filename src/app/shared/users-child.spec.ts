@@ -1,4 +1,4 @@
-import { USERSCHILD } from './users-child';
+import { USERSCHILD } from './database-constants';
 
 describe('USERSCHILD', () => {
   it('should create an instance', () => {
