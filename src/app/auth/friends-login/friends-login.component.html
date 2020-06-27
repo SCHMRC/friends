@@ -1,36 +1,45 @@
-<div class="col-md-6 col-md-offset-3 container p-5">
-  <h2>Login</h2>
-  <form name="form" (ngSubmit)="onLogin(loginFormData)" #loginFormData='ngForm'>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" name="email" (ngModel)="email" #email="ngModel" required
-        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="email" />
-      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        <div [hidden]="!email.hasError('required')">Email is required</div>
-        <div [hidden]="!email.hasError('pattern')">Email format should be
-          <small><b>codingchum@gmail.com</b></small>
+<div class="container p-5">
+  <h1>
+    Login
+  </h1>
+  <div class="container-fluid">
+      <form name="form" (ngSubmit)="onLogin(loginFormData.value)" #loginFormData='ngForm'>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" (ngModel)="email" #email="ngModel" required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="email" />
+          <!--Error-->
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            <div [hidden]="!email.hasError('required')">Email is required</div>
+            <div [hidden]="!email.hasError('pattern')">Email format should be
+              <small><b>codingchum@gmail.com</b></small>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" (ngModel)="password" #password="ngModel" required
-        id="password" />
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required
-      </div>
-    </div>
-    <div class="form-group">
-      <button type="submit" id="login-btn" class="btn btn-success" [disabled]="!loginFormData.form.valid">LOGIN</button>
-      <button routerLink="/app-friends-signup" data-tag="signup-tag" routerLinkActive="active" class="btn btn-success">
-        SIGNUP
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" (ngModel)="password" #password="ngModel" required
+            id="password" />
+          <!--Error-->
+          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            Password is required
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="login-btn" class="btn btn-success" [disabled]="!loginFormData.form.valid">LOGIN</button>
+          <button routerLink="/app-friends-signup" data-tag="signup-tag" routerLinkActive="active" class="btn btn-success">
+            SIGNUP
+          </button>
+        </div>
+      </form>
+      <button type="button" data-tag="password-reset-tag" class="btn btn-info" data-toggle="modal"
+        data-target="#password_reset">Reset Password
       </button>
-    </div>
-  </form>
-  <button type="button" data-tag="password-reset-tag" class="btn btn-info" data-toggle="modal"
-    data-target="#password_reset">Reset Password
-  </button>
+
+  </div>
+
 </div>
+<!--Modal-->
 <div id="password_reset" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
     <form name="form" (ngSubmit)="onReset(resetFormData)" #resetFormData='ngForm'>

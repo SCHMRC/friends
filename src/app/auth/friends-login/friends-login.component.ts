@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../shared/auth.service';
 
 @Component({
   selector: 'app-friends-login',
@@ -8,17 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class FriendsLoginComponent implements OnInit {
   showError = true;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(form){
-    console.log(form.value)
+  onLogin(form: object){
+    this.authService.signin(form['email'], form['password'])
+    .then((res) => {console.log(res)})
+    .catch((err) => {console.log(err)})
 
   }
 
-  onReset(form) {
+  onReset(form: object) {
+    this.authService.reset(form['email'])
+    .then((res) => {console.log(res); })
+    .catch((res) => {console.log(res); });
 
   }
 
