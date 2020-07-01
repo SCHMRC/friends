@@ -2,6 +2,7 @@
   <h1>
     SignUp
   </h1>
+  <app-error *ngIf="showerror" [msgerror]="errormsg" [dataToggle]="modal" [dataTarget]="exampleModal"></app-error>
   <div class="container-fluid">
     <form #mioform="ngForm" (ngSubmit)="onSignup(mioform.value)">
       <div class="form-group">

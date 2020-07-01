@@ -4,6 +4,7 @@ import { FriendsSignupComponent } from './friends-signup/friends-signup.componen
 import { FriendsLoginComponent } from './friends-login/friends-login.component';
 
 
+
 const routes: Routes = [
   {path: 'app-friends-signup', component: FriendsSignupComponent},
   { path: 'app-friends-login', component: FriendsLoginComponent}

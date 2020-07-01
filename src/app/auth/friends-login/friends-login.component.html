@@ -2,6 +2,10 @@
   <h1>
     Login
   </h1>
+  <app-error *ngIf="showError" [msgerror]="msgerror"></app-error>
+  <div *ngIf="user">
+    {{user | json }}
+  </div>
   <div class="container-fluid">
       <form name="form" (ngSubmit)="onLogin(loginFormData.value)" #loginFormData='ngForm'>
         <div class="form-group">
@@ -42,7 +46,7 @@
 <!--Modal-->
 <div id="password_reset" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
-    <form name="form" (ngSubmit)="onReset(resetFormData)" #resetFormData='ngForm'>
+    <form name="form" (ngSubmit)="onReset(resetFormData.value)" #resetFormData='ngForm'>
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Forgot Password?</h4>

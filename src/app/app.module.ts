@@ -4,13 +4,17 @@ import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from './../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, COMPONENTS } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    COMPONENTS,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
